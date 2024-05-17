@@ -76,6 +76,11 @@ p {
   transition: border-color 0.3s;
 }
 
+.trunq {
+	background-color: #B6B9F4;
+	margin: 10px;
+}
+
 #menu {
 	background: #12214E;
 	height: 33px;
