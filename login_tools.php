@@ -25,7 +25,7 @@ if (empty($pwd)) {
 }
 
 if (empty($errors)) {
-    $q = "SELECT UserID
+    $q = "SELECT UserID, Username
           FROM Users
           WHERE Email='$e' AND Password=SHA1('$p')";
     $r = $dbc->query($q); // Runs the SQL query and stores the result in $r

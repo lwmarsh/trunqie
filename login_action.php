@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($check) {
         session_start();
         $_SESSION['UserID'] = $data['UserID'];
+        $_SESSION['Username'] = $data['Username'];
         load('home.php');
 
         // If validate->check returns true, a session is started and stores details about who has logged in, then loads home.php
