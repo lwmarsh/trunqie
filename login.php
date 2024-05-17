@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./includes/styles.css">
 </head>
 
-<body>
+<body style="margin-top: 100px;">
     <div class="container">
         <div class="content" style="color: #12214E;">
             <h1>Log In</h1>

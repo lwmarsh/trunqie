@@ -71,12 +71,9 @@ if (empty($errors)) {
     $dbc->close();
     exit();
 }
-
-
-
 ?>
 
-<body>
+<body style="margin-top: 100px;">
     <div class="container">
         <div class="content">
             <form action="./register.php" method="post" class="form" role="form">
@@ -99,6 +96,7 @@ if (empty($errors)) {
 
                 <button type="submit" class="form-button" style="margin-top: 15px; margin-bottom: 15px;">REGISTER</button>
             </form>
+            <p>If you already have an account, please <a href="./login.php">log in</a>.</p>
             <?php if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($errors)) {
                 echo '<p>The following error(s) occurred:<br>';
                 foreach ($errors as $msg) { // Runs through each error message stored in the array (if there are any)
