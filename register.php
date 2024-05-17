@@ -35,7 +35,7 @@ if (!empty($_POST['pass1'])) {
         $p = $dbc->real_escape_string(trim($_POST['pass1']));
     }
 } else {
-    $errors[] = 'Password not entered.';
+    $errors[] = 'You did not enter a password.';
 }
 
 if (empty($errors)) { // If there are no errors added to the array...
@@ -98,10 +98,9 @@ if (empty($errors)) {
             </form>
             <p>If you already have an account, please <a href="./login.php">log in</a>.</p>
             <?php if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($errors)) {
-                echo '<p>The following error(s) occurred:<br>';
+                echo '<p><strong>The following error(s) occurred:</strong><br>';
                 foreach ($errors as $msg) { // Runs through each error message stored in the array (if there are any)
-                    echo " - $msg<br>"; // Prints each error as a message
-                    echo "</p>";
+                    echo "-$msg<br>"; // Prints each error as a message
                 }
             }
             ?>

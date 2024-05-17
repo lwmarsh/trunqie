@@ -27,6 +27,16 @@ body {
   justify-content: center;
 }
 
+.content-loggedin {
+	width: 750px;
+	margin: auto;
+	margin-left: 30px;
+	margin-right: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  }
+
 h1, h3 {
   font-family: "Mate";
 }
