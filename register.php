@@ -82,26 +82,18 @@ if (empty($errors)) {
             <form action="./register.php" method="post" class="form" role="form">
                 <h1>Create an Account</h1>
                 <div class="form-group">
-                    <label class="form-label">Username:</label>
-                    <br>
                     <input type="text" name="username" size="20" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>" class="form-input" placeholder="Username">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Email address:</label>
-                    <br>
-                    <input type="text" name="email" size="20" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" class="form-input" placeholder="Email Address" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" name="email" size="20" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" class="form-input" placeholder="Email Address">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Password:</label>
-                    <br>
                     <input type="password" name="pass1" size="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>" class="form-input" placeholder="Password">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Confirm password:</label>
-                    <br>
                     <input type="password" name="pass2" size="20" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>" class="form-input" placeholder="Confirm password">
                 </div>
 

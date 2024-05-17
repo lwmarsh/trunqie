@@ -14,14 +14,10 @@
             <h1>Log In</h1>
             <form action="login_action.php" method="post" class="form" role="form">
                 <div class="form-group">
-                    <label class="form-label">Email address:</label>
-                    <br>
-                    <input type="email" name="email" class="form-input" aria-describedby="emailHelp">
+                    <input type="email" name="email" class="form-input" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Password:</label>
-                    <br>
-                    <input type="password" name="pass" class="form-input">
+                    <input type="password" name="pass" class="form-input" placeholder="Password">
                 </div>
                 <button type="submit" name="submit" class="form-button" style="margin-top: 15px;">LOG IN</button>
             </form>
