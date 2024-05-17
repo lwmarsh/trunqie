@@ -12,7 +12,7 @@
     <div class="container">
         <div class="content" style="color: #12214E;">
             <h1>Welcome to <span style="font-family: Comfortaa;">Trunqer</span>!</h1>
-            <p>Please <a href="#">log in</a> or <a href="#">register</a>.</p>
+            <p>Please <a href="./login.php">log in</a> or <a href="./register.php">register</a>.</p>
             <div class="footer-container">
                 <footer>
                     Trunqer is a Twitter/X clone created by <a href="#">@lwmarsh</a>.
@@ -21,5 +21,4 @@
         </div>
     </div>
 </body>
-
 </html>
