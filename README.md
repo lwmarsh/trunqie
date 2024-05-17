@@ -1,12 +1,21 @@
-# Trunqie
-A Twitter clone written in PHP
+# Trunqie 
+Trunqie is a Twitter clone built primarily with PHP.
+The name comes from "trunk", one of the distinguishing features of [the ElePHPant](https://www.php.net/elephpant.php).
+###### "Trunqie" is also very similar to "Trunky", as in, "Trunky want a bun?"
 
-Other notes:
-PHP Purple = #8084bc
+## Planned features to implement
+### Basic functionality
+ - [] Trunq rules (e.g. no empty trunqs)
+ - [ ] Pagination to handle large numbers of trunqs
+ - [ ] Re"trunq"ing(?) & Liking
+ - [ ] Mentioning & Replying
+ - [ ] Deleting
+ - [ ] (Un)following other users
+ - [ ] Hashtags
 
-Palette:
-#B6B9F4 = Light purple
-#EDEEFF = Lightest purple
-#CFA716 = Dark yellow
-#454555 = Faded dark purple
-#12214E = Deep dark purple
+### Profile page
+ - [ ] Add profile information (e.g. first name, last name, profile picture, bio)
+
+### Site design
+ - [ ] Improve look of forms
+ - [ ] Improve layout of all content
