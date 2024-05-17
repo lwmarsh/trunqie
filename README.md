@@ -1,4 +1,4 @@
-# trunqer
+# Trunqie
 A Twitter clone written in PHP
 
 Other notes:
