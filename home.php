@@ -29,16 +29,14 @@ $userID = $_SESSION['UserID'];
 $q = "SELECT Trunqs.TrunqContent, Trunqs.timestamp AS trunq_timestamp, Users.Username 
         FROM Trunqs 
         INNER JOIN Users ON Trunqs.UserID = Users.UserID 
-        WHERE Trunqs.UserID = ? 
         ORDER BY Trunqs.timestamp DESC";
 $pq = $dbc->prepare($q);
-$pq->bind_param("i", $userID);
 $pq->execute();
 $result = $pq->get_result();
 
 // Displays trunqs and outputs: content, username, timestamp.
 while ($row = $result->fetch_assoc()) {
-    // Output tweet content, timestamp, etc.
+    // Output trunq content, timestamp, etc.
     echo "<div class='trunq'>";
     echo "<p>{$row['TrunqContent']}</p>";
     echo "<p>Posted by: {$row['Username']} on {$row['trunq_timestamp']}</p>";
