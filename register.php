@@ -1,3 +1,7 @@
+<?php 
+require_once('./includes/DatabaseConnector.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +15,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require('./includes/connect_db.php'); // Connects to the SQL database
-    $errors = array(); // Declares error catching array
+    $errors = array();
 }
 
 if (empty($_POST['username'])) {

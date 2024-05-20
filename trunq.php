@@ -8,7 +8,7 @@ if (!isset($_SESSION['UserID'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require('./includes/connect_db.php');
+    require_once('./includes/DatabaseConnector.php');
 }
 
 $trunqContent = $_POST['trunq_content']; // Takes input from the form on the homepage and stores it in the variable

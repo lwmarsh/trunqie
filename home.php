@@ -7,7 +7,7 @@ if (!isset($_SESSION['UserID'])) { // Checks if a user is logged in...
     exit(); 
 }
 
-include('./includes/connect_db.php');
+require_once('./includes/DatabaseConnector.php');
 include('./includes/header.php');
 ?>
 
@@ -48,7 +48,7 @@ while ($row = $result->fetch_assoc()) {
     // Output trunq content, timestamp, etc.
     echo "<div class='trunq'>";
     echo "<p>{$row['TrunqContent']}</p>";
-    echo "<p>Posted by: {$row['Username']} on {$row['trunq_timestamp']}</p>";
+    echo "<p>Posted by: <strong>{$row['Username']}</strong> on <em>{$row['trunq_timestamp']}</em></p>";
     echo "</div>";
 }
 

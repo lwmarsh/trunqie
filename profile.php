@@ -7,7 +7,7 @@ if (!isset($_SESSION['UserID'])) { // Checks if a user is logged in...
     exit(); 
 }
 
-include('./includes/connect_db.php');
+require_once('./includes/DatabaseConnector.php');
 
 include('./includes/header.php');
 

@@ -1,5 +1,7 @@
 <?php 
 
+require_once('./includes/DatabaseConnector.php');
+
 function load($page = 'login.php') { // Creates a new funciton which takes one parameter, $page, and it's been given a default value ∴ if load() is called without any arguments, it will load login.php (the 'log in' page)
 $url = 'http://' . $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']); // Builds a string of protocol, current domain and directory
 $url = rtrim($url, '\//'); // Removes all trailing slashes and concats the $page argument on the end

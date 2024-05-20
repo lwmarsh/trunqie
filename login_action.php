@@ -1,10 +1,7 @@
 <?php 
-// This file is specified in the 'action' attribute on the login form on login.php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Checks to see if the login form has been submitted
-    require ('includes/connect_db.php'); // If the above is true, connects to the database
-    require ('login_tools.php'); // Loads the functions to login and validate the form
+    require_once ('login_tools.php');
 
     list($check, $data) = validate($dbc, $_POST['email'], $_POST['pass']); 
     
