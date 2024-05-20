@@ -81,6 +81,7 @@ p {
     background-color: #B6B9F4;
     margin: 5px;
     padding: 10px;
+	border: solid #12214E 2px;
 }
 
 #menu {
