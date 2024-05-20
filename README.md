@@ -5,7 +5,6 @@ The name comes from "trunk", one of the distinguishing features of [the ElePHPan
 
 ## Planned features to implement
 ### Basic functionality
- - [] Trunq rules (e.g. no empty trunqs)
  - [ ] Pagination to handle large numbers of trunqs
  - [ ] Re"trunq"ing(?) & Liking
  - [ ] Mentioning & Replying
@@ -19,3 +18,10 @@ The name comes from "trunk", one of the distinguishing features of [the ElePHPan
 ### Site design
  - [ ] Improve look of forms
  - [ ] Improve layout of all content
+
+## Completed features
+### Basic functionality
+ - [x] Visitors are able to register and log in
+ - [x] Users are able to ~~Tweet~~ Trunq
+ - [x] Users are able to see all current Trunqs
+ - [x] Users are able to view only their Trunqs by heading to their profile page
