@@ -77,8 +77,10 @@ p {
 }
 
 .trunq {
-	background-color: #B6B9F4;
-	margin: 10px;
+    word-wrap: break-word;
+    background-color: #B6B9F4;
+    margin: 5px;
+    padding: 10px;
 }
 
 #menu {
