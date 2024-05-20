@@ -8,7 +8,6 @@ if (!isset($_SESSION['UserID'])) { // Checks if a user is logged in...
 }
 
 include('./includes/connect_db.php');
-
 include('./includes/header.php');
 ?>
 
@@ -16,12 +15,21 @@ include('./includes/header.php');
     <div class="container">
         <div class="content-loggedin" style="color: #12214E;">
             <h1>Hey, <span style="font-family: Comfortaa;"><?php echo "{$_SESSION['Username']}"; ?></span>!</h1>
-        <form action="trunq.php" method="post" class="form" role="form">
+            
+            <?php
+            if (isset($_SESSION['error'])) {
+                echo "<p style='color: red;'>{$_SESSION['error']}</p>";
+                unset($_SESSION['error']); // Clear the error message after displaying it
+            }
+            ?>
+
+            <form action="trunq.php" method="post" class="form" role="form">
                 <div class="form-group">
                 <textarea name="trunq_content" rows="4" cols="50" maxlength="280" placeholder="What's on your mind?"></textarea><br>
                 <button type="submit" name="submit" class="form-button" style="margin-top: 15px;">trunq 🐘</button>
                 </div>
             </form>
+            
 <?php
 
 // Retrieves trunqs from the database along with the username and timestamp
@@ -33,6 +41,7 @@ $q = "SELECT Trunqs.TrunqContent, Trunqs.timestamp AS trunq_timestamp, Users.Use
 $pq = $dbc->prepare($q);
 $pq->execute();
 $result = $pq->get_result();
+
 
 // Displays trunqs and outputs: content, username, timestamp.
 while ($row = $result->fetch_assoc()) {

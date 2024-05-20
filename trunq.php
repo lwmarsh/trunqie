@@ -1,4 +1,5 @@
 <?php 
+include('login_tools.php');
 session_start();
 
 if (!isset($_SESSION['UserID'])) {
@@ -8,10 +9,15 @@ if (!isset($_SESSION['UserID'])) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require('./includes/connect_db.php');
-    $errors = array();
 }
 
 $trunqContent = $_POST['trunq_content']; // Takes input from the form on the homepage and stores it in the variable
+
+if (empty($trunqContent)) {
+    $_SESSION['error'] = 'Trunq content cannot be empty!';
+    load('home.php');
+    exit();
+}
 
 $trunqContent = htmlspecialchars($trunqContent); // Escapes special characters
 
