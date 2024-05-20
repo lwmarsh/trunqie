@@ -3,7 +3,7 @@ include('login_tools.php');
 session_start();
 
 if (!isset($_SESSION['UserID'])) {
-    load();
+    $loginTools->load();
     exit(); 
 }
 
@@ -15,7 +15,7 @@ $trunqContent = $_POST['trunq_content']; // Takes input from the form on the hom
 
 if (empty($trunqContent)) {
     $_SESSION['error'] = 'Trunq content cannot be empty!';
-    load('home.php');
+    $loginTools->load('home.php');
     exit();
 }
 
@@ -31,6 +31,6 @@ $pq->execute();
 $pq->close(); 
 
 include_once('./login_tools.php');
-load('home.php');
+$loginTools->load('home.php');
 
 ?>
