@@ -1,31 +1,31 @@
 <?php 
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require_once ('login_tools.php');
+require_once('./login_tools.php');
 
-    list($check, $data) = validate($dbc, $_POST['email'], $_POST['pass']); 
-    
-    // Passes the database connection, email and password values from the form 
-
-    // List accepts the returned bool ($check) and array ($data) from validate() 
+function handleFormSubmission($loginTools, $email, $password) {
+    list($check, $data) = $loginTools->validate($email, $password);
 
     if ($check) {
         session_start();
         $_SESSION['UserID'] = $data['UserID'];
         $_SESSION['Username'] = $data['Username'];
-        load('home.php');
-
-        // If validate->check returns true, a session is started and stores details about who has logged in, then loads home.php
-
-        // $data is an associative array; column headings from the database are used as the index
-
-    } else {
+        
+        $loginTools->load('home.php');     
+    } else { 
         $errors = $data;
-        // If validate->check returns false, $errors is populated with errors from the valdiation attempt
+        include('login.php');
     }
-
-    $dbc->close(); // Closes database
-    include('login.php'); // Includes login form
-
 }
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['pass'] ?? '';
+
+    handleFormSubmission($loginTools, $email, $password);
+
+    $dbc->close();
+} else {
+    include('login.php');
+}
+
 ?>
