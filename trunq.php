@@ -1,14 +1,14 @@
 <?php 
-include('login_tools.php');
 session_start();
 
-if (!isset($_SESSION['UserID'])) {
-    $loginTools->load();
+if (!isset($_SESSION['UserID'])) { // Checks if a user is logged in...
+    require_once('./includes/utilities.php');
+    Utilities::load(); // ...if they're not logged in, they're redirected to the Log In page
     exit(); 
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require_once('./includes/DatabaseConnector.php');
+    require_once('./includes/database_connector.php');
 }
 
 $trunqContent = $_POST['trunq_content']; // Takes input from the form on the homepage and stores it in the variable
@@ -30,7 +30,7 @@ $pq->bind_param("is", $_SESSION['UserID'], $trunqContent); // Binds the followin
 $pq->execute(); 
 $pq->close(); 
 
-include_once('./login_tools.php');
-$loginTools->load('home.php');
+require_once('./includes/utilities.php');
+Utilities::load('home.php');
 
 ?>

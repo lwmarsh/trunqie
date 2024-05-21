@@ -1,13 +1,13 @@
 <?php 
 session_start();
-include('./login_tools.php');
 
 if (!isset($_SESSION['UserID'])) { // Checks if a user is logged in...
-    $loginTools->load(); // ...if they're not logged in, they're redirected to the Log In page
+    require_once('./includes/utilities.php');
+    Utilities::load(); // ...if they're not logged in, they're redirected to the Log In page
     exit(); 
 }
 
-require_once('./includes/DatabaseConnector.php');
+require_once('./includes/database_connector.php');
 
 include('./includes/header.php');
 

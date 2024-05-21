@@ -2,8 +2,8 @@
 session_start();
 
 if (!isset($_SESSION['UserID'])) {
-    require('login_tools.php');
-    $loginTools->load(); // Redirects user to log in page if they are not already logged in
+    require('./includes/utilities.php');
+    Utilities::load(); // Redirects user to log in page if they are not already logged in
 }
 
 $_SESSION = array(); // Clears the existing session variables...

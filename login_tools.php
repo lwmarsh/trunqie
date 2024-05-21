@@ -1,20 +1,12 @@
 <?php 
 
-require_once('./includes/DatabaseConnector.php');
+require_once('./includes/database_connector.php');
 
 class LoginTools {
     private $dbc;
 
     public function __construct($dbc) {
         $this->dbc = $dbc;
-    }
-
-    public function load($page = 'login.php') {
-        $url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
-        $url = rtrim($url, '/\\');
-        $url .= '/' . $page;
-        header("Location: $url");
-        exit();
     }
 
     public function validate($email='', $pwd='') {

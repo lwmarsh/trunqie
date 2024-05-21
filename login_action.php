@@ -1,6 +1,7 @@
 <?php 
 
 require_once('./login_tools.php');
+require_once('./includes/utilities.php');
 
 function handleFormSubmission($loginTools, $email, $password) {
     list($check, $data) = $loginTools->validate($email, $password);
@@ -9,8 +10,7 @@ function handleFormSubmission($loginTools, $email, $password) {
         session_start();
         $_SESSION['UserID'] = $data['UserID'];
         $_SESSION['Username'] = $data['Username'];
-        
-        $loginTools->load('home.php');     
+        utilities::load('home.php');     
     } else { 
         $errors = $data;
         include('login.php');

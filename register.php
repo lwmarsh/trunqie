@@ -1,5 +1,5 @@
 <?php 
-require_once('./includes/DatabaseConnector.php');
+require_once('./includes/database_connector.php');
 ?>
 
 <!DOCTYPE html>
