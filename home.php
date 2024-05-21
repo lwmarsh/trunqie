@@ -8,7 +8,11 @@ if (!isset($_SESSION['UserID'])) { // Checks if a user is logged in...
 }
 
 require_once('./includes/database_connector.php');
+require_once('./includes/trunq_manager.php');
 include('./includes/header.php');
+
+$trunqManager = new TrunqManager($databaseConnector);
+$trunqs = $trunqManager->getTrunqs();
 ?>
 
 <body style="margin-top: 100px;">
@@ -32,29 +36,13 @@ include('./includes/header.php');
             
 <?php
 
-// Retrieves trunqs from the database along with the username and timestamp
-$userID = $_SESSION['UserID'];
-$q = "SELECT Trunqs.TrunqContent, Trunqs.timestamp AS trunq_timestamp, Users.Username 
-        FROM Trunqs 
-        INNER JOIN Users ON Trunqs.UserID = Users.UserID 
-        ORDER BY Trunqs.timestamp DESC";
-$pq = $dbc->prepare($q);
-$pq->execute();
-$result = $pq->get_result();
-
-
-// Displays trunqs and outputs: content, username, timestamp.
-while ($row = $result->fetch_assoc()) {
-    // Output trunq content, timestamp, etc.
+foreach ($trunqs as $trunq) {
     echo "<div class='trunq'>";
-    echo "<p>{$row['TrunqContent']}</p>";
-    echo "<p>Posted by: <strong>{$row['Username']}</strong> on <em>{$row['trunq_timestamp']}</em></p>";
+    echo "<p>{$trunq['TrunqContent']}</p>";
+    echo "<p>Posted by: <strong>{$trunq['Username']}</strong> on <em>{$trunq['trunq_timestamp']}</em></p>";
     echo "</div>";
 }
 
-// Close the database connection
-$pq->close();
-$dbc->close();
 ?>
 
         </div>
