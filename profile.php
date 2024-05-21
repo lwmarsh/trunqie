@@ -28,8 +28,6 @@ $trunqs = $trunqManager->getTrunqs($userID);
         echo "</div>";
         }
 
-$pq->close();
-$dbc->close();
 ?>
 
         </div>

@@ -1,36 +1,33 @@
 <?php 
 session_start();
 
-if (!isset($_SESSION['UserID'])) { // Checks if a user is logged in...
+if (!isset($_SESSION['UserID'])) {
     require_once('./includes/utilities.php');
-    Utilities::load(); // ...if they're not logged in, they're redirected to the Log In page
-    exit(); 
+    Utilities::load();
+    exit();
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once('./includes/database_connector.php');
-}
+    require_once('./includes/user.php');
 
-$trunqContent = $_POST['trunq_content']; // Takes input from the form on the homepage and stores it in the variable
+    $databaseConnector = new DatabaseConnector('localhost:3006', 'root', 'admin', 'trunqer');
+    $databaseConnector->connect();
 
-if (empty($trunqContent)) {
-    $_SESSION['error'] = 'Trunq content cannot be empty!';
-    $loginTools->load('home.php');
+    $user = new User($databaseConnector);
+
+    $userID = $_SESSION['UserID'];
+    $trunqContent = $_POST['trunq_content'];
+
+    $error = $user->trunq($userID, $trunqContent);
+
+    if ($error) {
+        $_SESSION['error'] = $error;
+    }
+
+    require_once('./includes/utilities.php');
+    Utilities::load('home.php');
     exit();
 }
-
-$trunqContent = htmlspecialchars($trunqContent); // Escapes special characters
-
-$q = "INSERT INTO Trunqs (UserID, TrunqContent) VALUES (?, ?)"; // "?" acts as a placeholder for actual values
-
-$pq = $dbc->prepare($q); // "(P)repared (Q)uery" -> Compiles the statement but does not execute it
-
-$pq->bind_param("is", $_SESSION['UserID'], $trunqContent); // Binds the following parameters to the statement (where the placeholder values are). "is" indicates that the first parameter is an integer (i) and the second parameter is a string (s). The two arguments are the actual values that will be inserted.
-
-$pq->execute(); 
-$pq->close(); 
-
-require_once('./includes/utilities.php');
-Utilities::load('home.php');
 
 ?>
