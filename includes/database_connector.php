@@ -14,11 +14,11 @@ class DatabaseConnector {
     private $dbName;
     private $dbConnection;
 
-    public function __construct() {
-        $this->host = $_ENV['DB_HOST'];
-        $this->username = $_ENV['DB_USERNAME'];
-        $this->password = $_ENV['DB_PASSWORD'];
-        $this->dbName = $_ENV['DB_NAME'];         
+    public function __construct($host, $username, $password, $dbName) {
+        $this->host = $host;
+        $this->username = $username;
+        $this->password = $password;
+        $this->dbName = $dbName;        
     }
 
     public function connect() {
