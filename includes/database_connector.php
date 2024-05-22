@@ -1,5 +1,12 @@
 <?php 
 
+require_once('./vendor/autoload.php');
+
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__, '/..');
+$dotenv->load();
+
 class DatabaseConnector {
     private $host;
     private $username;
@@ -7,11 +14,11 @@ class DatabaseConnector {
     private $dbName;
     private $dbConnection;
 
-    public function __construct($host, $username, $password, $dbName) {
-        $this->host = $host;
-        $this->username = $username;
-        $this->password = $password;
-        $this->dbName = $dbName;        
+    public function __construct() {
+        $this->host = $_ENV['DB_HOST'];
+        $this->username = $_ENV['DB_USERNAME'];
+        $this->password = $_ENV['DB_PASSWORD'];
+        $this->dbName = $_ENV['DB_NAME'];         
     }
 
     public function connect() {
